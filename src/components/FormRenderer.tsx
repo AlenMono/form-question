@@ -19,7 +19,7 @@ export function FormRenderer({
 
     console.log(answers, initialData)
 
-    const handleChange = (questionId: number, val: any) => {
+    const handleChange = (questionId: number | string, val: any) => {
 
         setAnswers((prev) => ({ ...prev, [questionId]: val }));
     };
