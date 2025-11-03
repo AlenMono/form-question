@@ -16,7 +16,13 @@ export default function Login() {
         const { success, error } = await signIn(email, password);
         setLoading(true)
 
+        if (error) {
+            setLoading(false)
+            return toast.error(error);
+        }
+
         if (!success) {
+            setLoading(false)
             return toast.error(error);
         }
 
@@ -52,7 +58,7 @@ export default function Login() {
                 <button
                     onClick={onSubmit}
                     disabled={loading}
-                    className="w-full bg-blue-600 text-white py-2 rounded relative hover:bg-blue-700 transition"
+                    className="w-full bg-blue-600 text-white py-2 rounded relative hover:bg-blue-800 cursor-pointer transition"
                 >
                     <span className={loading ? 'opacity-0' : ''}>Login</span>
                     {loading && <div role="status" className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">

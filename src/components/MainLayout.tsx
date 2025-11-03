@@ -1,6 +1,5 @@
 import { LayoutDashboard, LogOut } from "lucide-react";
 import { Link } from "react-router-dom";
-import { ToastContainer } from "react-toastify";
 import { logOut } from "../lib/auth";
 import LogoIcon from "./Logo";
 
@@ -36,18 +35,6 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
           {children}
         </main>
       </div>
-      <ToastContainer
-        position="bottom-right"
-        autoClose={5000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick={false}
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="light"
-      />
     </div>
   );
 }
