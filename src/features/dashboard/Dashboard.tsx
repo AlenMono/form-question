@@ -19,7 +19,7 @@ export default function Dashboard() {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [selectedFormId, setSelectedFormId] = useState<string | null>(null);
     const location = useLocation();
-
+    
     const fetchForms = async () => {
         setLoading(true);
         const { data, error } = await supabase
@@ -35,12 +35,6 @@ export default function Dashboard() {
         }
         setLoading(false);
     };
-
-
-    useEffect(() => {
-        fetchForms();
-    }, [location.key]);
-
 
     const handleDelete = async () => {
         if (!selectedFormId) return;
@@ -62,6 +56,16 @@ export default function Dashboard() {
     const filteredForms = forms.filter((f) =>
         f.client_id.toLowerCase().includes(searchTerm.toLowerCase())
     );
+
+    useEffect(() => {
+        fetchForms();
+    }, []);
+
+    useEffect(() => {
+        if (location.state?.refresh) {
+            fetchForms();
+        }
+    }, [location.state]);
 
     return (
         <div className="flex-1 flex flex-col overflow-hidden h-screen bg-gray-50">

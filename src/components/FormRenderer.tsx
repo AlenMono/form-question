@@ -41,7 +41,7 @@ export function FormRenderer({
         onSubmit({ ...answers, status: "draft", updated_at: new Date().toISOString() });
 
         toast.success("Draft saved successfully!");
-        navigate('/')
+        navigate('/', { state: { refresh: true } });
     };
 
     const handleSubmitAll = () => {
