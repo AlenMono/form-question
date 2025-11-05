@@ -27,7 +27,7 @@ export default function DownloadDropdown({ initialData, className }: { className
             {/* Main Button */}
             <button
                 onClick={() => setOpen(!open)}
-                className={classNames("flex items-center gap-2 border border-gray-500 text-black rounded px-4 py-2 hover:bg-gray-500 hover:text-white transition-all duration-200 cursor-pointer", className)}
+                className={classNames("flex items-center text-sm gap-2 border border-gray-500 text-black rounded px-4 py-1.5 hover:bg-gray-500 hover:text-white transition-all duration-200 cursor-pointer", className)}
             >
                 Download  <ChevronDown size={16} className={cn('transition-all duration-200 ', open ? 'rotate-180' : '')} />
             </button>
@@ -45,9 +45,9 @@ export default function DownloadDropdown({ initialData, className }: { className
                         document={<FormPDF data={initialData.data} />}
                         fileName={`Form-Questions_${initialData.data.clientId}_${initialData.data.clientName}.pdf`}
                     >
-                        {({ loading }) => <>
+                        {() => <>
                             <span className="block w-full text-left text-sm px-4 py-2 hover:bg-gray-100">
-                                {loading ? 'Generating PDF...' : 'Export PDF'}
+                                Export PDF
                             </span>
                         </>}
                     </PDFDownloadLink>

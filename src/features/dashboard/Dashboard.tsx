@@ -131,7 +131,7 @@ export default function Dashboard() {
                 )}
 
                 {!loading && filteredForms.length > 0 && (
-                    <ul className="space-y-3">
+                    <ul className="space-y-1.5">
                         {filteredForms.map((f) => {
                             return (
                                 <li
@@ -169,7 +169,7 @@ export default function Dashboard() {
                                                 <div className="flex gap-2">
                                                     <DownloadDropdown
                                                         initialData={f}
-                                                        className={classNames("!py-1 !px-2 text-xs", f.status === "submitted" ? '' : 'opacity-0 pointer-events-none')}
+                                                        className="!py-1 !px-2 text-xs"
                                                     />
                                                     {f.status === "draft" && (
                                                         <Link
