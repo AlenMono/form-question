@@ -4,7 +4,6 @@ import { supabase } from "../../lib/supabaseClient";
 import { Eye, Pencil, Plus, Search, Trash } from "lucide-react";
 import MainHeader from "../../components/MainHeader";
 import DownloadDropdown from "../../components/DownloadDropdown";
-import classNames from "classnames";
 
 type FormData = {
     client_id: string;
