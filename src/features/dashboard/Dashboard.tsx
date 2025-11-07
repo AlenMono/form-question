@@ -139,12 +139,18 @@ export default function Dashboard() {
                                 >
                                     <div className="flex-1">
                                         <div className="flex justify-between flex-1 items-center">
-                                            <div className="flex items-center gap-2">
-                                                <div className="flex gap-2 items-center">
-                                                    <span className="text-xs">Client ID:</span>
-                                                    <span className="font-semibold text-gray-800">
+                                            <div className="flex items-center gap-5">
+                                                <div className="flex gap-1 flex-col items-start ">
+                                                    <p className="text-xs text-nowrap">Client ID:</p>
+                                                    <p className="font-semibold text-gray-800 truncate text-sm min-w-[300px] max-w-[300px]">
                                                         {f.data.clientId}
-                                                    </span>
+                                                    </p>
+                                                </div>
+                                                <div className="flex gap-1 flex-col items-start ">
+                                                    <p className="text-xs text-nowrap">Client Name:</p>
+                                                    <p className="font-semibold text-gray-800 truncate text-sm min-w-[300px] max-w-[300px]">
+                                                        {f.data.clientName || '-'}
+                                                    </p>
                                                 </div>
                                             </div>
 

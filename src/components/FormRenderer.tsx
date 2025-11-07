@@ -31,10 +31,11 @@ export function FormRenderer({
 
     const handleSaveDraft = () => {
 
-        if (!answers?.clientId) {
-            toast.warn("Client ID are required!");
+        if (!answers.clientId || !answers.clientName || !answers.applicant) {
+            toast.warn("Applicant, Client ID and Client Name are required!");
             return;
         }
+
         onSubmit({ ...answers, status: "draft", updated_at: new Date().toISOString() });
 
         toast.success("Draft saved successfully!");
@@ -43,8 +44,8 @@ export function FormRenderer({
 
     const handleSubmitAll = () => {
         // Check required fields
-        if (!answers.clientId || !answers.clientName) {
-            toast.warn("Client ID and Client Name are required!");
+        if (!answers.clientId || !answers.clientName || !answers.applicant) {
+            toast.warn("Applicant, Client ID and Client Name are required!");
             return;
         }
 

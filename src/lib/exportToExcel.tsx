@@ -4,7 +4,7 @@ import { getQuestionLabel, getOptionLabel } from '../lib/formUtils';
 
 export const exportToExcel = (data: Record<string, any>[]) => {
     const formattedData = data.map(item => {
-        const { clientName, clientId, status, updated_at, ...responses } = item;
+        const { clientName, clientId, status, applicant, updated_at, ...responses } = item;
 
         // Map numeric keys to readable labels
         const readableResponses: Record<string, any> = {};
@@ -18,6 +18,7 @@ export const exportToExcel = (data: Record<string, any>[]) => {
             });
 
         return {
+            'Applicant': applicant,
             'Client Name': clientName,
             'Client ID': clientId,
             Status: status,

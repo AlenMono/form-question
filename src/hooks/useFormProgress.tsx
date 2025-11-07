@@ -35,10 +35,11 @@ export function useFormProgress(id: string | null) {
 
     const save = useCallback(
         async (newData: Record<string, any>) => {
-            setSaving(true);
+            setSaving(true);   
 
             try {
                 const payload = {
+                    applicant: newData.applicant,
                     client_id: newData.clientId,
                     data: { ...data.data, ...newData }, // merge only into inner JSON
                     updated_at: new Date().toISOString(),
