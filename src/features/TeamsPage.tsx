@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { supabase } from '../lib/supabaseClient';
-import { Pencil, Plus, Trash } from 'lucide-react';
+import { Pencil, Trash } from 'lucide-react';
 import classNames from 'classnames';
 
 interface Team {
