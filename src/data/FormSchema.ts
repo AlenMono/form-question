@@ -59,7 +59,15 @@ export const formSchema: Question[] = [
       { value: "september", label: "September" },
     ],
   },
-
+  {
+    id: 39,
+    label: "Is this a Holdco?",
+    type: "radio",
+    options: [
+      { value: "yes", label: "Yes", jumpTo: 34 },
+      { value: "no", label: "No" },
+    ]
+  },
 
   // RETURN TYPE — PDF: "1040 Go to 34" and "1041 Go to 34"
   {
@@ -373,5 +381,10 @@ export const formSchema: Question[] = [
       { value: "wyoming", label: "Wyoming" },
     ],
   },
+  {
+    id: 38,
+    label: "Any other items to note:",
+    type: "text",
+  }
 ];
 
