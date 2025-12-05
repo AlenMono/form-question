@@ -78,24 +78,37 @@ export function QuestionItem({
           {index + 1}. {question.label}
         </label>
         <div className="flex flex-col pl-6 gap-4 mt-1">
-          {question.options?.map((opt) => (
-            <label
-              key={opt.value}
-              className={`flex items-center gap-2 text-gray-800 text-sm ${disabled ? "cursor-not-allowed" : "cursor-pointer"
-                }`}
-            >
-              <input
-                type="radio"
-                name={String(question.id)}
-                value={opt.value}
-                checked={value === opt.value}
-                onChange={() => onChange(opt.value)}
-                disabled={disabled}
-                className="accent-blue-600"
-              />
-              {opt.label}
-            </label>
-          ))}
+          {question.options?.map((opt) => {
+            const checked = value === opt.value || (opt.value === "other" && value?.main === "other");
+            return (
+              <label key={opt.value} className="flex items-center gap-2 text-gray-800 text-sm">
+                <input
+                  type="radio"
+                  name={String(question.id)}
+                  value={opt.value}
+                  checked={checked}
+                  onChange={() =>
+                    onChange(opt.value === "other" ? { main: "other", otherText: "" } : opt.value)
+                  }
+                  className="accent-blue-600"
+                />
+                {opt.label}
+              </label>
+            );
+          })}
+
+          {value?.main === "other" && (
+            <input
+              type="text"
+              placeholder="Please specify"
+              value={value.otherText || ""}
+              onChange={(e) =>
+                onChange({ main: "other", otherText: e.target.value })
+              }
+              className="border rounded border-gray-300 px-3 py-2 text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+          )}
+
         </div>
       </div>
     );
